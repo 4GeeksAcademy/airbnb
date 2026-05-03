@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import BottomNav from "@/components/BottomNav";
 import ListingGrid from "@/components/ListingGrid";
 import MapPlaceholder from "@/components/MapPlaceholder";
+import PageNav from "@/components/PageNav";
 import ResultsHeader from "@/components/ResultsHeader";
 import { listings } from "@/data/listings";
 
@@ -21,8 +22,10 @@ const CatalogPage = () => {
   }, [sortOrder]);
 
   return (
-    <main className="min-h-screen bg-white px-4 py-5 pb-24">
-      <div className="mx-auto max-w-6xl space-y-6">
+    <main className="min-h-screen bg-white pb-24">
+      <PageNav />
+
+      <div className="mx-auto max-w-6xl space-y-6 px-4 py-5">
         <ResultsHeader
           resultCount={sortedListings.length}
           sortOrder={sortOrder}

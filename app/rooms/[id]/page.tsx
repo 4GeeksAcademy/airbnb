@@ -8,6 +8,7 @@ import HostInfo from "@/components/HostInfo";
 import AmenitiesGrid from "@/components/AmenitiesGrid";
 import BookingCard from "@/components/BookingCard";
 import LoadingState from "@/components/LoadingState";
+import PageNav from "@/components/PageNav";
 import Footer from "@/components/Footer";
 import { rooms } from "@/data/rooms";
 import { Room } from "@/types/room";
@@ -65,8 +66,10 @@ const RoomDetailPage = ({ params }: RoomDetailPageProps) => {
 
   if (isLoading) {
     return (
-      <main className="min-h-screen bg-white px-4 py-6">
-        <div className="mx-auto max-w-6xl">
+      <main className="min-h-screen bg-white">
+        <PageNav />
+
+        <div className="mx-auto max-w-6xl px-4 py-6">
           <LoadingState />
         </div>
       </main>
@@ -75,8 +78,10 @@ const RoomDetailPage = ({ params }: RoomDetailPageProps) => {
 
   if (!room) {
     return (
-      <main className="min-h-screen bg-white px-4 py-6">
-        <div className="mx-auto max-w-6xl space-y-4">
+      <main className="min-h-screen bg-white">
+        <PageNav />
+
+        <div className="mx-auto max-w-6xl space-y-4 px-4 py-6">
           <BackLink />
           <h1 className="text-2xl font-semibold text-gray-900">
             Room not found
@@ -91,6 +96,8 @@ const RoomDetailPage = ({ params }: RoomDetailPageProps) => {
 
   return (
     <main className="min-h-screen bg-white">
+      <PageNav />
+
       <div className="mx-auto max-w-6xl space-y-6 px-4 py-6">
         <BackLink />
 
