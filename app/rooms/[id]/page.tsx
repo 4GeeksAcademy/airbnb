@@ -7,6 +7,7 @@ import ListingHeader from "@/components/ListingHeader";
 import HostInfo from "@/components/HostInfo";
 import AmenitiesGrid from "@/components/AmenitiesGrid";
 import BookingCard from "@/components/BookingCard";
+import BottomNav from "@/components/BottomNav";
 import LoadingState from "@/components/LoadingState";
 import PageNav from "@/components/PageNav";
 import Footer from "@/components/Footer";
@@ -69,9 +70,11 @@ const RoomDetailPage = ({ params }: RoomDetailPageProps) => {
       <main className="min-h-screen bg-white">
         <PageNav />
 
-        <div className="mx-auto max-w-6xl px-4 py-6">
+        <div className="mx-auto max-w-6xl px-4 py-6 pb-24">
           <LoadingState />
         </div>
+
+        <BottomNav />
       </main>
     );
   }
@@ -81,7 +84,7 @@ const RoomDetailPage = ({ params }: RoomDetailPageProps) => {
       <main className="min-h-screen bg-white">
         <PageNav />
 
-        <div className="mx-auto max-w-6xl space-y-4 px-4 py-6">
+        <div className="mx-auto max-w-6xl space-y-4 px-4 py-6 pb-24">
           <BackLink />
           <h1 className="text-2xl font-semibold text-gray-900">
             Room not found
@@ -90,12 +93,14 @@ const RoomDetailPage = ({ params }: RoomDetailPageProps) => {
             This listing does not exist. Please return to the catalog.
           </p>
         </div>
+
+        <BottomNav />
       </main>
     );
   }
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white pb-24">
       <PageNav />
 
       <div className="mx-auto max-w-6xl space-y-6 px-4 py-6">
@@ -138,6 +143,7 @@ const RoomDetailPage = ({ params }: RoomDetailPageProps) => {
       </div>
 
       <Footer />
+      <BottomNav />
     </main>
   );
 };

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const PageNav = () => {
   return (
-    <nav className="border-b border-gray-200 bg-white px-4 py-3">
+    <header className="sticky top-0 z-40 border-b border-gray-200 bg-white px-4 py-3">
       <div className="mx-auto flex max-w-6xl flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         <div className="font-semibold text-rose-500">airbnb</div>
 
@@ -24,7 +24,7 @@ const PageNav = () => {
           </Link>
         </div>
       </div>
-    </nav>
+    </header>
   );
 };
 
