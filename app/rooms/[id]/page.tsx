@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import BackLink from "@/components/BackLink";
 import PhotoGallery from "@/components/PhotoGallery";
 import ListingHeader from "@/components/ListingHeader";
@@ -13,12 +13,13 @@ import { rooms } from "@/data/rooms";
 import { Room } from "@/types/room";
 
 interface RoomDetailPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 const RoomDetailPage = ({ params }: RoomDetailPageProps) => {
+  const { id } = use(params);
   const [room, setRoom] = useState<Room | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
@@ -26,13 +27,13 @@ const RoomDetailPage = ({ params }: RoomDetailPageProps) => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      const foundRoom = rooms.find((roomItem) => roomItem.id === params.id);
+      const foundRoom = rooms.find((roomItem) => roomItem.id === id);
       setRoom(foundRoom ?? null);
       setIsLoading(false);
     }, 1000);
 
     return () => clearTimeout(timer);
-  }, [params.id]);
+  }, [id]);
 
   const handlePreviousPhoto = () => {
     if (!room) return;
